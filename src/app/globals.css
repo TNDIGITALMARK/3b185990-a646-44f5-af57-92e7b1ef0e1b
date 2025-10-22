@@ -1,59 +1,109 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/*
+=============================================================================
+AI FOOD & NUTRITION WASTE REDUCER - DESIGN SYSTEM
+=============================================================================
+Extracted from design reference for PIXEL-PERFECT REPLICATION
+
+COLOR PALETTE (Exact hex codes from reference):
+- Primary Green: #5CB85C (HSL: 120 44% 53%)
+- Button Blue: #5BC0DE (HSL: 187 59% 61%)
+- Success Green: #5CB85C
+- Warning Yellow: #F0AD4E (HSL: 35 82% 62%)
+- Danger Red: #D9534F (HSL: 2 61% 58%)
+- Background Light Gray: #F5F5F5 (HSL: 0 0% 96%)
+- Text Dark: #333333 (HSL: 0 0% 20%)
+- White: #FFFFFF
+
+TYPOGRAPHY:
+- Font Family: Inter (sans-serif)
+- Hero Headline: 32px, bold
+- Section Headers: 18px, bold
+- Body Text: 14px, regular
+- Dropdown Text: 14px, regular
+
+SPACING & SIZING:
+- Card Border Radius: 8px
+- Button/Input Border Radius: 4px
+- Card Shadow: 0 2px 4px rgba(0,0,0,0.1)
+- Section Padding: 20px
+- Gap between elements: 16px
+
+COMPONENT STYLES:
+- Meal Cards: Green header, white body, 8px rounded, shadow
+- Buttons: Blue background, white text, 4px rounded, 10px 20px padding
+- Dropdowns: White bg, gray border, 4px rounded
+- Charts: Donut (yellow/orange/green), Bar (green/yellow/red)
+=============================================================================
 */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* AI Food App Color System - Exact from design reference */
+  --background: 0 0% 96%; /* #F5F5F5 - Light gray page background */
+  --foreground: 0 0% 20%; /* #333333 - Dark text */
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Card system - White cards on light gray */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 0 0% 20%; /* #333333 */
 
-  /* Popovers with white background */
+  /* Popovers */
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  --popover-foreground: 0 0% 20%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
+  /* Primary: Vibrant Green from design #5CB85C */
+  --primary: 120 44% 53%;
   --primary-foreground: 0 0% 100%;
 
-  /* Secondary: Light gray background with black text */
-  --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  /* Secondary: Button Blue from design #5BC0DE */
+  --secondary: 187 59% 61%;
+  --secondary-foreground: 0 0% 100%;
 
-  /* Muted: Subtle gray with darker text */
+  /* Muted: Light gray */
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 40%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Accent: Button Blue (same as secondary) */
+  --accent: 187 59% 61%;
+  --accent-foreground: 0 0% 100%;
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Destructive: Red from design #D9534F */
+  --destructive: 2 61% 58%;
   --destructive-foreground: 0 0% 100%;
 
+  /* Warning: Yellow/Orange from design #F0AD4E */
+  --warning: 35 82% 62%;
+  --warning-foreground: 0 0% 20%;
+
+  /* Success: Green (same as primary) */
+  --success: 120 44% 53%;
+  --success-foreground: 0 0% 100%;
+
   /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 120 44% 53%; /* Green ring for focus */
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border radius from design */
+  --radius: 0.5rem; /* 8px for cards */
+  --radius-sm: 0.25rem; /* 4px for buttons/inputs */
 
-  /* Sidebar: Clean white with black text */
+  /* Sidebar */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --sidebar-foreground: 0 0% 20%;
+  --sidebar-primary: 120 44% 53%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
-  --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-accent-foreground: 0 0% 20%;
+  --sidebar-border: 0 0% 88%;
+  --sidebar-ring: 120 44% 53%;
+
+  /* Custom App Colors */
+  --app-green: 120 44% 53%; /* #5CB85C */
+  --app-blue: 187 59% 61%; /* #5BC0DE */
+  --app-yellow: 35 82% 62%; /* #F0AD4E */
+  --app-red: 2 61% 58%; /* #D9534F */
 }
 
 .dark {
@@ -168,36 +218,159 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* Base typography - Inter font from design reference */
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+/* Typography scale from design reference */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: -0.025em;
+  color: hsl(var(--foreground));
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: hsl(var(--foreground));
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  line-height: 1.4;
+}
+
+h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
+p {
+  margin-bottom: 1em;
+  line-height: 1.6;
 }
 
-/* Subtle shadows for depth */
+/* Button styles from design reference */
+button {
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Link styles */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--primary) / 0.8);
+}
+
+/* Card shadows from design reference */
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0.1);
 }
 
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Custom utility classes for app */
+.app-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.app-card-header {
+  background: hsl(var(--app-green));
+  color: white;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.app-card-body {
+  padding: 20px;
+}
+
+.app-button-primary {
+  background: hsl(var(--app-blue));
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.app-button-primary:hover {
+  background: hsl(var(--app-blue) / 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.app-button-primary:active {
+  transform: translateY(0);
+}
+
+/* Form elements */
+select, input {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+select {
+  background: white;
+  border: 1px solid hsl(var(--border));
+  border-radius: 4px;
+  padding: 8px 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+select:hover {
+  border-color: hsl(var(--app-green));
+}
+
+select:focus {
+  outline: none;
+  border-color: hsl(var(--app-green));
+  box-shadow: 0 0 0 3px hsl(var(--app-green) / 0.1);
 }
